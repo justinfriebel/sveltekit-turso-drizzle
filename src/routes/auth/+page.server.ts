@@ -5,9 +5,9 @@ import { redirect } from '@sveltejs/kit';
 import { createAuthJWT } from '$lib/server/jwt.js';
 import { eq } from 'drizzle-orm';
 
-export const config = {
-  runtime: 'nodejs18.x'
-};
+// export const config = {
+//   runtime: 'nodejs18.x'
+// };
 
 // Select a user from the database by email
 const selectUserByEmail = async (email: FormDataEntryValue) => {
