@@ -14,7 +14,7 @@
     "format": "prettier --plugin-search-dir . --write .",
     "drizzle-generate": "drizzle-kit generate:sqlite",
     "drizzle-link": "pnpm link ../../drizzle-orm/dist; pnpm link ../../drizzle-zod/dist",
-    "migrate": "tsm ./migrate.ts",
+    "migrate": "tsm ./src/lib/server/migrate.ts",
     "studio": "pnpm drizzle-kit studio"
   },
   "devDependencies": {

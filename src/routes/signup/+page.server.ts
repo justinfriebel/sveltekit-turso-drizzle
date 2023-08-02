@@ -1,7 +1,6 @@
 import { auth } from '$lib/server/lucia';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
-import { DrizzleError } from 'drizzle-orm';
 
 export const load: PageServerLoad = async ({ locals }) => {
   const session = await locals.auth.validate();
