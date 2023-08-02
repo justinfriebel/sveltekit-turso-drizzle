@@ -4,8 +4,9 @@
 
 <h1>Welcome to SvelteKit Turso DrizzleORM Starter</h1>
 
-{#if data.email}
-  <p>Logged in as {data.email}</p>
+{#if data.username}
+  <p>Logged in as {data.username}</p>
 {:else}
-  <a href="/auth">Sign in OR Sign up</a>
+  <a href="/signin">Sign in</a>
+  <a href="/signup">Sign up</a>
 {/if}

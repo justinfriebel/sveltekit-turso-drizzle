@@ -1,17 +1,17 @@
-import { verifyAuthJWT } from '$lib/server/jwt.js';
 import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async ({ cookies, route }) => {
-  const token = cookies.get('auth_token');
+export const load: LayoutServerLoad = async ({ locals, route }) => {
+  const session = await locals.auth.validate();
 
-  if (!token || token === '') {
-    if (route.id !== '/auth') {
-      throw redirect(301, '/auth');
-    }
+  if (!session) {
+    if (route.id === '/signin' || route.id === '/signup') return;
 
-    return;
+    throw redirect(302, '/signin');
   }
 
-  return verifyAuthJWT(token || '');
-}) satisfies LayoutServerLoad;
+  return {
+    userId: session.user.userId,
+    username: session.user.username
+  };
+};
