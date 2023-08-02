@@ -29,14 +29,15 @@
     <ul>
       <li><a class={classesActive('/')} href="/" on:click={drawerClose}>Home</a></li>
       <li><a class={classesActive('/about')} href="/about" on:click={drawerClose}>About</a></li>
-      {#if data.email}
+      {#if data.userId}
         <li>
-          <form method="POST" action="/auth?/signOut">
+          <form method="POST" action="?/signOut">
             <button on:click={drawerClose}>Sign out</button>
           </form>
         </li>
       {:else}
-        <li><a href="/auth" on:click={drawerClose}>Sign in OR Sign up</a></li>
+        <li><a href="/signin" on:click={drawerClose}>Sign in</a></li>
+        <li><a href="/signup" on:click={drawerClose}>Sign up</a></li>
       {/if}
     </ul>
   </nav>
