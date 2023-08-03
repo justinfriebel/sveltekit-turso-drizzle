@@ -58,6 +58,11 @@ export const actions: Actions = {
           message: 'Username already taken'
         });
       }
+
+      if (e) {
+        console.log(e);
+      }
+
       return fail(500, {
         message: 'An unknown error occurred'
       });
