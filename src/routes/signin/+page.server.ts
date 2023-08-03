@@ -29,11 +29,14 @@ export const actions: Actions = {
       // find user by key
       // and validate password
       const user = await auth.useKey('username', username.toLowerCase(), password);
+      console.log('🚀 ~ file: +page.server.ts:32 ~ signIn: ~ user:', user);
       const session = await auth.createSession({
         userId: user.userId,
         attributes: {}
       });
+      console.log('🚀 ~ file: +page.server.ts:37 ~ signIn: ~ session:', session);
       locals.auth.setSession(session); // set session cookie
+      console.log('🚀 ~ file: +page.server.ts:39 ~ signIn: ~ locals:', locals);
     } catch (e) {
       if (
         e instanceof LuciaError &&
@@ -47,7 +50,7 @@ export const actions: Actions = {
       }
 
       if (e) {
-        console.log(e);
+        console.log('🚀 ~ file: +page.server.ts:52 ~ signIn: ~ e:', e);
       }
 
       return fail(500, {
